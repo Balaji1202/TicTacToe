@@ -1,45 +1,41 @@
 <template>
-	<div
-	v-if="this.store.gameStatus"
-	class="winning-message">
-		<div>{{this.store.gameStatus}}</div>
-		<button @click="restartMatch" class="restart-button">Restart</button>
+	<div class="intro-message">
+		<p class="intro-text">Ready to play TicTacToe</p>
+		<button
+			@click="startGame"
+		class="start-button">Start</button>
 	</div>
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			store: this.$root.store
-		}
-	},
 	methods: {
-		restartMatch() {
-			this.store.restart = true;
+		startGame() {
+			this.$root.store.start = true
 		}
 	}
 }
 </script>
 
 <style scoped>
-.winning-message {
+
+.intro-message {	
 	z-index: 3;
 	position: fixed;
 	right: 0;
 	left: 0;
 	top: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
-	font-size: 3.5rem;
+	color: black;
+	font-size: 2rem;
 	flex-direction: column;
 }
 
-.restart-button {
+.start-button {
 	font-size: 3rem;
 	background-color: white;
 	border: 1px solid black;
@@ -48,7 +44,7 @@ export default {
 	border-radius: 20px;
 	outline: none;
 }
-.restart-button:active{
+.start-button:active{
 	background-color: black;
 	color: white;
 }

@@ -8,7 +8,8 @@ new Vue({
                 currentMove: 'x',
                 gameStatus: '',
                 restart: false,
-                boardSize: 3
+                boardSize: 3,
+                start: false
             }
         }
     },

@@ -1,13 +1,16 @@
 <template>
-	<div
-		ref="board"
-		class="board"
-		:class="{mobile: isMobile, [this.store.currentMove]: true}"
-		>
+	<div>
+		<div class="command">{{this.store.currentMove.toUpperCase()}}'s turn </div>
 		<div
-		v-for="(item, index) in this.store.boardSize * this.store.boardSize" :key="index"
-			@click.once="onPlay" :data-cell="index" class="cell"></div>
-    </div>
+			ref="board"
+			class="board"
+			:class="{mobile: isMobile, [this.store.currentMove]: true}"
+			>
+			<div
+			v-for="(item, index) in this.store.boardSize * this.store.boardSize" :key="index"
+				@click.once="onPlay" :data-cell="index" class="cell"></div>
+			</div>
+		</div>
 </template>
 
 <script>
@@ -102,6 +105,7 @@ export default {
 
 <style scoped>
 	.board {
+		margin-top: -10%;
 		width: 100vw;
 		height: 100vh;
 		display: grid;
@@ -155,6 +159,13 @@ export default {
 
 /* End of Mobile specific style */
 
+	.command{
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		align-content: center;
+		font-size: 3rem;
+	}
 
 	.cell {
 		width: var(--cell-size);
