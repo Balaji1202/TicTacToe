@@ -105,7 +105,7 @@ export default {
 
 <style scoped>
 	.board {
-		margin-top: -10%;
+		margin-top: -60px;
 		width: 100vw;
 		height: 100vh;
 		display: grid;

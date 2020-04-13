@@ -24,6 +24,7 @@ export default {
 
 <style scoped>
 .winning-message {
+	text-align: center;
 	z-index: 3;
 	position: fixed;
 	right: 0;
@@ -35,7 +36,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 	color: white;
-	font-size: 3.5rem;
+	font-size: 4rem;
 	flex-direction: column;
 }
 

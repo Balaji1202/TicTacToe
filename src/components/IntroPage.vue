@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 .intro-text {
-	font-size: 90%;
+	text-align: center;
 }
 .intro-message {	
 	z-index: 3;
@@ -33,7 +33,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 	color: black;
-	font-size: 2rem;
+	font-size: 4rem;
 	flex-direction: column;
 }
 
