@@ -230,7 +230,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.intro-message[data-v-9137ccca] {\t\n\tz-index: 3;\n\tposition: fixed;\n\tright: 0;\n\tleft: 0;\n\ttop: 0;\n\tbottom: 0;\n\tbackground-color: rgba(255, 255, 255, 0.9);\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: black;\n\tfont-size: 2rem;\n\tflex-direction: column;\n}\n.start-button[data-v-9137ccca] {\n\tfont-size: 3rem;\n\tbackground-color: white;\n\tborder: 1px solid black;\n\tpadding: .25em;\n\tcursor: pointer;\n\tborder-radius: 20px;\n\toutline: none;\n}\n.start-button[data-v-9137ccca]:active{\n\tbackground-color: black;\n\tcolor: white;\n}\n", ""]);
+exports.push([module.i, "\n.intro-text[data-v-9137ccca] {\n\tfont-size: 90%;\n}\n.intro-message[data-v-9137ccca] {\t\n\tz-index: 3;\n\tposition: fixed;\n\tright: 0;\n\tleft: 0;\n\ttop: 0;\n\tbottom: 0;\n\tbackground-color: rgba(255, 255, 255, 0.9);\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: black;\n\tfont-size: 2rem;\n\tflex-direction: column;\n}\n.start-button[data-v-9137ccca] {\n\tfont-size: 3rem;\n\tbackground-color: white;\n\tborder: 1px solid black;\n\tpadding: .25em;\n\tcursor: pointer;\n\tborder-radius: 20px;\n\toutline: none;\n}\n.start-button[data-v-9137ccca]:active{\n\tbackground-color: black;\n\tcolor: white;\n}\n", ""]);
 
 // exports
 

@@ -18,7 +18,9 @@ export default {
 </script>
 
 <style scoped>
-
+.intro-text {
+	font-size: 90%;
+}
 .intro-message {	
 	z-index: 3;
 	position: fixed;
