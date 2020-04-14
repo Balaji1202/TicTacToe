@@ -9,7 +9,8 @@ new Vue({
                 gameStatus: '',
                 restart: false,
                 boardSize: 3,
-                start: false
+                start: false,
+                showSetting: false
             }
         }
     },

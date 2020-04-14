@@ -7,9 +7,37 @@
 body {
     margin: 0px;
     padding: 0px;
+    background-color: var(--theme-base-body);
+    color: var(--theme-base-text);
+    opacity: 0.8;
 }
 
 :root {
     --cell-size: 100px;
     --mark-size: calc(var(--cell-size) * .9);
+    /*  */
+    /* #43cea2 →  */
+    --light-theme-header1: #56ab2f;
+    --light-theme-header2: #185a9d;
+    --light-theme-footer1: #185a9d;
+    --light-theme-footer2: #56ab2f;
+    --light-theme-body: white;
+    --light-theme-text: black;
+    --light-theme-trace: lightgrey;
+    /*  */
+    --dark-theme-header1: var(--light-theme-header1);
+    --dark-theme-header2: var(--light-theme-header2);
+    --dark-theme-footer1: var(--light-theme-footer1);
+    --dark-theme-footer2: var(--light-theme-footer2);
+    --dark-theme-body: #222428;
+    --dark-theme-text: white;
+    --dark-theme-trace: #303030;
+    /*  */
+    --theme-base-footer1: var(--light-theme-footer1);
+    --theme-base-footer2: var(--light-theme-footer2);
+    --theme-base-header1: var(--light-theme-header1);
+    --theme-base-header2: var(--light-theme-header2);
+    --theme-base-body: var(--light-theme-body);
+    --theme-base-text: var(--light-theme-text);
+    --theme-base-trace: var(--light-theme-trace);
 }

@@ -22,7 +22,7 @@ export default {
 	text-align: center;
 }
 .intro-message {	
-	z-index: 3;
+	z-index: 1;
 	position: fixed;
 	right: 0;
 	left: 0;

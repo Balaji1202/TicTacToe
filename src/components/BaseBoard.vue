@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<div class="command">{{this.store.currentMove.toUpperCase()}}'s turn </div>
+	<div class="boardComponent">
+		<div>{{this.store.currentMove.toUpperCase()}}'s turn</div>
 		<div
 			ref="board"
 			class="board"
@@ -104,10 +104,14 @@ export default {
 </script>
 
 <style scoped>
+	.boardComponent {
+		margin-top: 100px;
+		text-align: center;
+		font-size: 3rem;
+	}
 	.board {
-		margin-top: -60px;
 		width: 100vw;
-		height: 100vh;
+		height: 70vh;
 		display: grid;
 		grid-template-columns: repeat(3, auto);
 		justify-content: center;
@@ -125,17 +129,17 @@ export default {
 		border-radius: 50%;
 	}
 	.mobile.board.o .cell:not(.x):not(.o)::before {
-		background-color: black;
+		background-color: var(--theme-base-text);
 		width: var(--mark-size);
 		height: var(--mark-size);
 	}
 	.mobile.board.o .cell:not(.x):not(.o)::after {
-		background-color: white;
+		background-color: var(--theme-base-body);
 		width: calc(var(--mark-size)*.7);
 		height: calc(var(--mark-size)*.7);
 	}
 	.mobile.board.o .cell:not(.x):not(.o)::before {
-		background-color: lightgrey;
+		background-color: var(--theme-base-trace);
 	}
 	
 	.mobile.board.x .cell:not(.x):not(.o)::before,
@@ -154,23 +158,15 @@ export default {
 	}
 	.mobile.board.x .cell:not(.x):not(.o)::before,
 	.mobile.board.x .cell:not(.x):not(.o)::after{
-		background-color: lightgrey;
+		background-color: var(--theme-base-trace);
 	}
 
 /* End of Mobile specific style */
 
-	.command{
-		display: flex;
-		text-align: center;
-		justify-content: center;
-		align-content: center;
-		font-size: 3rem;
-	}
-
 	.cell {
 		width: var(--cell-size);
 		height: var(--cell-size);
-		border: 1px solid black;
+		border: 2px solid var(--theme-base-text);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -215,25 +211,26 @@ export default {
 	}
 	.cell.o::before,
 	.board.o .cell:not(.x):not(.o):hover:before {
-		background-color: black;
+		background-color: var(--theme-base-text);
 		width: var(--mark-size);
 		height: var(--mark-size);
 	}
 	.cell.o::after,
 	.board.o .cell:not(.x):not(.o)::after {
-		background-color: white;
+		background-color: var(--theme-base-body);
 		width: calc(var(--mark-size)*.7);
 		height: calc(var(--mark-size)*.7);
 	}
 	.board.o .cell:not(.x):not(.o):hover::before {
-		background-color: lightgrey;
+		background-color: var(--theme-base-trace);
 	}
 /* End of cell o */
 
 /* Cell x */
 	.cell.x::before,
 	.cell.x::after {
-		background-color: black;
+		background-color: var(--theme-base-text);
+		border: solid var(--theme-base-body) 1px;
 	}
 	.cell.x::before,
 	.cell.x::after,
@@ -254,7 +251,7 @@ export default {
 	}
 	.board.x .cell:not(.x):not(.o):hover::before,
 	.board.x .cell:not(.x):not(.o):hover::after{
-		background-color: lightgrey;
+		background-color: var(--theme-base-trace);
 	}
 /* End of cell x */
 </style>

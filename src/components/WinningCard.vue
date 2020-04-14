@@ -4,11 +4,16 @@
 	class="winning-message">
 		<div>{{this.store.gameStatus}}</div>
 		<button @click="restartMatch" class="restart-button">Restart</button>
+		<InfoFooter/>
 	</div>
 </template>
 
 <script>
+import InfoFooter from './InfoFooter.vue'
 export default {
+	components: {
+		InfoFooter
+	},
 	data() {
 		return {
 			store: this.$root.store
@@ -25,7 +30,6 @@ export default {
 <style scoped>
 .winning-message {
 	text-align: center;
-	z-index: 3;
 	position: fixed;
 	right: 0;
 	left: 0;
@@ -41,7 +45,7 @@ export default {
 }
 
 .restart-button {
-	font-size: 3rem;
+	font-size: 2rem;
 	background-color: white;
 	border: 1px solid black;
 	padding: .25em;
