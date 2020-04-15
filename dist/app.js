@@ -549,7 +549,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.footer[data-v-40df4999] {\n\t\tmargin-top: 20px;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\tflex-wrap: wrap;\n\t\tbackground: linear-gradient(var(--theme-base-footer1), var(--theme-base-footer2));\n\t\topacity: 0.8;\n}\n.footer-text[data-v-40df4999] {\n\t\tcolor: var(--theme-base-text);\n\t\tflex-basis: 100%;\n\t\ttext-align: center;\n\t\tfont-weight: bold;\n\t\tfont-size: 16px;\n\t\tfont-family: 'Courier New', Courier, monospace;\n}\n.avatar[data-v-40df4999] {\n    width: 150px;\n    height: 150px;\n    background-size: cover;\n    background-position: top center;\n    border-radius: 70%;\n}\n.avatar1[data-v-40df4999] {\n    background-image: url(" + escape(__webpack_require__(/*! ./../assets/goalAvatar.png */ "./src/assets/goalAvatar.png")) + ");\n}\n", ""]);
+exports.push([module.i, "\n.footer[data-v-40df4999] {\n\t\tmargin-top: 20px;\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\tflex-wrap: wrap;\n\t\tbackground: linear-gradient(var(--theme-base-footer1), var(--theme-base-footer2));\n\t\topacity: 0.8;\n}\n.footer-text[data-v-40df4999] {\n\t\tcolor: var(--theme-base-text);\n\t\tflex-basis: 100%;\n\t\ttext-align: center;\n\t\tfont-weight: bold;\n\t\tfont-size: 16px;\n\t\tfont-family: 'Courier New', Courier, monospace;\n}\n.avatar[data-v-40df4999] {\n    width: 150px;\n    height: 150px;\n    background-size: cover;\n    background-position: top center;\n    border-radius: 70%;\n}\n.avatar1[data-v-40df4999] {\n    background-image: url(./assets/goalAvatar.png);\n}\n", ""]);
 
 // exports
 
@@ -2297,7 +2297,7 @@ var staticRenderFns = [
             [
               _c("img", {
                 attrs: {
-                  src: __webpack_require__(/*! ./../assets/linkedin.png */ "./src/assets/linkedin.png"),
+                  src: "./assets/linkedin.png",
                   width: "50px",
                   height: "50px",
                   alt: ""
@@ -2314,7 +2314,7 @@ var staticRenderFns = [
             [
               _c("img", {
                 attrs: {
-                  src: __webpack_require__(/*! ./../assets/mail.png */ "./src/assets/mail.png"),
+                  src: "./assets/mail.png",
                   width: "40px",
                   height: "50px",
                   alt: ""
