@@ -35,8 +35,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    BaseBoard: _components_BaseBoard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     WinningCard: _components_WinningCard__WEBPACK_IMPORTED_MODULE_1__["default"],
+    BaseBoard: _components_BaseBoard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     IntroPage: _components_IntroPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     BaseHeader: _components_BaseHeader_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     InfoFooter: _components_InfoFooter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -258,14 +258,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     rotateGear: function rotateGear(event) {
+      var _this = this;
+
       this.$emit('gear-clicked', event);
       var gear = this.$refs.gear;
-
-      if (gear.getAttribute('id') === 'rotate-gear') {
-        this.$refs.gear.setAttribute('id', 'rotate-gear-rev');
-      } else {
-        this.$refs.gear.setAttribute('id', 'rotate-gear');
-      }
+      this.$refs.gear.classList.add('rotate-gear');
+      setTimeout(function () {
+        _this.$refs.gear.classList.remove('rotate-gear');
+      }, 500);
     }
   }
 });
@@ -491,7 +491,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.svgs[data-v-1ab42430] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex-flow: wrap-reverse;\n\tposition: relative;\n}\n.arrow-down[data-v-1ab42430] {\n\tposition: absolute;\n\ttop: 28px;\n\tleft: 5.8px;\n\twidth: 20px;\n\theight: 20px;\n\ttransform: rotate(180deg);\n\tpadding: 0px;\n\tfill: #02aab0;\n}\n.gear[data-v-1ab42430]{\n\twidth: 30px;\n\theight: 30px;\n\tcursor: pointer;\n}\n#rotate-gear[data-v-1ab42430] {\n\t-webkit-animation: rotate-data-v-1ab42430 linear;\n\tanimation: rotate-data-v-1ab42430 linear;\n\ttransform-origin: center;\n\ttransform-box: fill-box;\n\tanimation-duration: .5s;\n}\n#rotate-gear-rev[data-v-1ab42430] {\n\t-webkit-animation: rev-rotate-data-v-1ab42430 linear;\n\tanimation: rev-rotate-data-v-1ab42430 linear;\n\ttransform-origin: center;\n\ttransform-box: fill-box;\n\tanimation-duration: .5s;\n}\n@keyframes rotate-data-v-1ab42430 {\nfrom {\n\t\ttransform: rotateZ(0deg);\n}\nto {\n\t\ttransform: rotateZ(45deg);\n}\n}\n@keyframes rev-rotate-data-v-1ab42430 {\nfrom {\n\t\ttransform: rotateZ(45deg);\n}\nto {\n\t\ttransform: rotateZ(0deg);\n}\n}\n.fade-enter-active[data-v-1ab42430], .fade-leave-active[data-v-1ab42430] {\n  transition: opacity .5s;\n}\n.fade-enter[data-v-1ab42430], .fade-leave-to[data-v-1ab42430] /* .fade-leave-active below version 2.1.8 */ {\n\topacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.svgs[data-v-1ab42430] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tflex-flow: wrap-reverse;\n\tposition: relative;\n}\n.arrow-down[data-v-1ab42430] {\n\tposition: absolute;\n\ttop: 28px;\n\tleft: 5.8px;\n\twidth: 20px;\n\theight: 20px;\n\ttransform: rotate(180deg);\n\tpadding: 0px;\n\tfill: #02aab0;\n}\n.gear[data-v-1ab42430]{\n\twidth: 30px;\n\theight: 30px;\n\tcursor: pointer;\n}\n.rotate-gear[data-v-1ab42430] {\n\t-webkit-animation: rotate-data-v-1ab42430 linear;\n\tanimation: rotate-data-v-1ab42430 linear;\n\ttransform-origin: center;\n\ttransform-box: fill-box;\n\tanimation-duration: .5s;\n}\n@keyframes rotate-data-v-1ab42430 {\nfrom {\n\t\ttransform: rotateZ(0deg);\n}\nto {\n\t\ttransform: rotateZ(45deg);\n}\n}\n.fade-enter-active[data-v-1ab42430], .fade-leave-active[data-v-1ab42430] {\n  transition: opacity .5s;\n}\n.fade-enter[data-v-1ab42430], .fade-leave-to[data-v-1ab42430] /* .fade-leave-active below version 2.1.8 */ {\n\topacity: 0;\n}\n", ""]);
 
 // exports
 

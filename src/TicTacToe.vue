@@ -20,8 +20,8 @@ import BaseHeader from './components/BaseHeader.vue';
 import InfoFooter from './components/InfoFooter.vue'
 export default {
 	components: {
-		BaseBoard,
 		WinningCard,
+		BaseBoard,
 		IntroPage,
 		BaseHeader,
 		InfoFooter

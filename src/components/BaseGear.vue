@@ -22,12 +22,10 @@ export default {
 		rotateGear(event) {
 			this.$emit('gear-clicked', event);
 			let gear = this.$refs.gear;
-			if(gear.getAttribute('id') === 'rotate-gear') {
-				this.$refs.gear.setAttribute('id', 'rotate-gear-rev');
-			}
-			else {
-				this.$refs.gear.setAttribute('id', 'rotate-gear');
-			}
+			this.$refs.gear.classList.add('rotate-gear');
+			setTimeout(() => {
+				this.$refs.gear.classList.remove('rotate-gear');	
+			}, 500);
 		}
 	}
 }
@@ -55,16 +53,9 @@ export default {
 		height: 30px;
 		cursor: pointer;
 	}
-	#rotate-gear {
+	.rotate-gear {
 		-webkit-animation: rotate linear;
 		animation: rotate linear;
-		transform-origin: center;
-		transform-box: fill-box;
-		animation-duration: .5s;
-	}
-	#rotate-gear-rev {
-		-webkit-animation: rev-rotate linear;
-		animation: rev-rotate linear;
 		transform-origin: center;
 		transform-box: fill-box;
 		animation-duration: .5s;
@@ -75,14 +66,6 @@ export default {
 		}
 		to {
 			transform: rotateZ(45deg);
-		}
-	}
-	@keyframes rev-rotate {
-		from {
-			transform: rotateZ(45deg);
-		}
-		to {
-			transform: rotateZ(0deg);
 		}
 	}
 	.fade-enter-active, .fade-leave-active {
