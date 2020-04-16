@@ -4,22 +4,35 @@
 	class="winning-message">
 		<div>{{this.store.gameStatus}}</div>
 		<button @click="restartMatch" class="restart-button">Restart</button>
-		<InfoFooter/>
+		<PullDown
+			@pulled-down="onPulledDown"
+		/>
+		<transition name="fade">
+			<InfoFooter
+				v-if="this.pulledDown"
+			/>
+		</transition>
 	</div>
 </template>
 
 <script>
 import InfoFooter from './InfoFooter.vue'
+import PullDown from './PullDown.vue'
 export default {
 	components: {
-		InfoFooter
+		InfoFooter,
+		PullDown
 	},
 	data() {
 		return {
-			store: this.$root.store
+			store: this.$root.store,
+			pulledDown: false
 		}
 	},
 	methods: {
+		onPulledDown() {
+			this.pulledDown = true
+		},
 		restartMatch() {
 			this.store.restart = true;
 		}
@@ -31,10 +44,10 @@ export default {
 .winning-message {
 	text-align: center;
 	position: fixed;
-	right: 0;
-	left: 0;
 	top: 0;
 	bottom: 0;
+	left: 0;
+	right: 0;
 	background-color: rgba(0, 0, 0, 0.9);
 	display: flex;
 	justify-content: center;
@@ -53,8 +66,18 @@ export default {
 	border-radius: 20px;
 	outline: none;
 }
-.restart-button:active{
+.restart-button:hover{
 	background-color: black;
 	color: white;
+}
+.restart-button:active{
+	background-color: white;
+	color: black;
+}
+.fade-enter-active, .fade-leave-active {
+	  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	opacity: 0;
 }
 </style>

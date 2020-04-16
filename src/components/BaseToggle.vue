@@ -20,7 +20,7 @@ export default {
 		position: relative;
 		display: inline-block;
 		width: 50px;
-		height: 30px;
+		height: 27px;
 		margin: 10px;
 	}
 	.switch input {
@@ -44,8 +44,8 @@ export default {
 	.slider:before {
 		position: absolute;
 		content: "";
-		height: 22px;
-		width: 22px;
+		height: 18px;
+		width: 18px;
 		left: 3px;
 		bottom: 4px;
 		background-color: rgb(255, 255, 255);

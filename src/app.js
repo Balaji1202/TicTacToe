@@ -8,9 +8,14 @@ new Vue({
                 currentMove: 'x',
                 gameStatus: '',
                 restart: false,
+                changeSettings: false,
                 boardSize: 3,
                 start: false,
-                showSetting: false
+                showSetting: false,
+                firstPlayer: 'x',
+                secondPlayer: 'o',
+                singlePlayer: true,
+                easy: true
             }
         }
     },

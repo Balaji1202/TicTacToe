@@ -9,6 +9,7 @@
 			</BaseGear>
 			<transition name="fade">
 				<BaseDropDown
+					@mode-change="modeChange()"
 					v-show="this.store.showSetting"
 				/>
 			</transition>
@@ -30,6 +31,9 @@ export default {
 		}
 	},
 	methods: {
+		modeChange() {
+			this.$emit('mode-change');
+		},
 		onGearClick(event) {
 			event.stopPropagation();
 			this.store.showSetting = !this.store.showSetting;
@@ -55,6 +59,7 @@ export default {
 		background: linear-gradient(var(--theme-base-header1), var(--theme-base-header2));
 		color: var(--theme-base-text);
 		font-size: 2em;
+		z-index: 100;
 	}
 	.gear {
 		position: relative;

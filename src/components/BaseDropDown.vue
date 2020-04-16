@@ -6,6 +6,11 @@
 				@toggle="switchTheme"
 			/>
 		</li>
+		<li
+			@click="changeMode"
+			class="text settings">
+			Change mode
+		</li>
 	</ul>
 </template>
 
@@ -21,6 +26,9 @@ export default {
 		}
 	},
 	methods: {
+		changeMode() {
+			this.$emit('mode-change');
+		},
 		switchHeaderTheme(root) {
 			let display1 = `--${this.theme}-theme-header1`;
 			let display2 = `--${this.theme}-theme-header2`;
@@ -73,25 +81,28 @@ export default {
 <style scoped>
 .dropdown {
 	background: linear-gradient(#02aab0, #00cdac);
-	border-radius: 5px 4px 10px 10px;
+	border-radius: 20px 5px 10px 10px;
 }
 .text {
-	font-size: 0.9em;
+	font-size: 25px;
 	display: flex;
 	align-items: center;
-	margin-left: -26px;
 	justify-content: space-between;
 	flex-basis: 100%;
+	padding: 10px 0 10px 0;
+}
+.settings {
+	cursor: pointer;
+}
+.settings:hover {
+	color: white;
 }
 .dropdown {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	position: absolute;
-	left: -244px;
+	left: -231px;
 	margin-top: 13px;
-	width: 272px;
-	height: 60px;
+	width: 260px;
+	height: 124px;
 	list-style: none;
 }
 </style>

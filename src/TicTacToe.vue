@@ -1,14 +1,15 @@
 <template>
-	<div class="tic-tac-toe">
-		<BaseHeader/>
+	<div
+		:key="this.$root.store.restart"
+		class="tic-tac-toe">
+		<BaseHeader
+			@mode-change="modeChange"
+		/>
 		<IntroPage
 			v-if="!this.$root.store.start"
 		/>
-		<BaseBoard
-			:key="this.$root.store.restart"
-		/>
+		<BaseBoard/>
 		<WinningCard/>
-		<InfoFooter/>
 	</div>
 </template>
 
@@ -17,14 +18,17 @@ import BaseBoard from './components/BaseBoard.vue';
 import WinningCard from './components/WinningCard';
 import IntroPage from './components/IntroPage.vue';
 import BaseHeader from './components/BaseHeader.vue';
-import InfoFooter from './components/InfoFooter.vue'
 export default {
 	components: {
 		WinningCard,
 		BaseBoard,
 		IntroPage,
-		BaseHeader,
-		InfoFooter
+		BaseHeader
+	},
+	methods: {
+		modeChange() {
+			this.$root.store.restart = true;
+		}
 	}
 }
 </script>

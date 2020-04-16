@@ -1,6 +1,8 @@
 <template>
 	<div class="boardComponent">
-		<div>{{this.store.currentMove.toUpperCase()}}'s turn</div>
+		<div v-show="this.store.currentMove === 'o' && this.store.singlePlayer">AI's turn</div>
+		<div v-show="this.store.currentMove === 'x' && this.store.singlePlayer">Your turn</div>
+		<div v-show="!this.store.singlePlayer">{{this.store.currentMove.toUpperCase()}}'s turn</div>
 		<div
 			ref="board"
 			class="board"
@@ -10,19 +12,27 @@
 			v-for="(item, index) in this.store.boardSize * this.store.boardSize" :key="index"
 				@click.once="onPlay" :data-cell="index" class="cell"></div>
 			</div>
+			<BaseFreezeLayer
+				v-if="this.freezeLayer"/>
 		</div>
 </template>
 
 <script>
+import BaseFreezeLayer from './BaseFreezeLayer.vue';
 export default {
+	components: {
+		BaseFreezeLayer
+	},
 	data() {
 		return {
 			winAudio: document.getElementById('win-audio'),
 			moveAudio: document.getElementById('move-audio'),
 			cellsLeft: this.$root.store.boardSize * this.$root.store.boardSize,
 			store: this.$root.store,
+			freezeLayer: false,
 			isMobile: false,
-			statusMap: new Array((2*this.$root.store.boardSize) + 2).fill(0),
+			availableLookup: [],
+			computerPlayed: false,
 			winningLookup: [
 									[0, 1, 2],
 									[3, 4, 5],
@@ -38,16 +48,24 @@ export default {
 	},
 	methods: {
 		checkStatus() {
-			if(this.cellsLeft === 0) {
-				this.store.gameStatus = 'Match draw'
-			}
-			else {
-				let result = this.checkWin();
-				if(result === true) {
+			let result = this.checkWin();
+			if(result === true) {
+				if(this.store.singlePlayer && this.store.currentMove === 'o') {
+					this.store.gameStatus = 'AI wins';
+				}
+				else if(this.store.singlePlayer && this.store.currentMove === 'x') {
+					this.store.gameStatus = 'You win';
+					this.winAudio.currentTime = 0;
+					this.winAudio.play();
+				}
+				else {
 					this.store.gameStatus = this.store.currentMove.toUpperCase() + ' wins'
 					this.winAudio.currentTime = 0;
 					this.winAudio.play();
 				}
+			}
+			else if(this.cellsLeft === 0) {
+				this.store.gameStatus = 'Match draw'
 			}
 		},
 		checkWin() {
@@ -56,17 +74,44 @@ export default {
 					return this.cellElements[index].classList.contains(this.store.currentMove);
 				})
 			})
-			this.statusMap[index] += updateValue;
 		},
 		switchPlayer() {
-			this.store.currentMove = this.store.currentMove === 'x' ? 'o': 'x';
+			this.store.currentMove = this.store.currentMove === this.store.firstPlayer ? this.store.secondPlayer: this.store.firstPlayer;
 		},
 		onPlay(event) {
+			let cellElement = event.target.closest('.cell');
+			if(cellElement.className.includes('x') || cellElement.className.includes('o')) {
+				return;
+			}
 			this.cellsLeft--;
-			event.target.closest('.cell').classList.add(this.store.currentMove);
+			let index = cellElement.getAttribute('data-cell');
+			this.availableLookup = this.availableLookup.filter((a) => a != index);
+			cellElement.classList.add(this.store.currentMove);
 			this.checkStatus();
 			this.playAudio();
 			this.switchPlayer();
+			if(this.store.singlePlayer && ! this.computerPlayed && this.cellsLeft && !this.store.gameStatus) {
+				this.showFreezeLayer();
+				setTimeout(() => {
+					this.playComputer();
+					this.hideFreezeLayer();
+				}, 500);
+			} else {
+				this.computerPlayed = false;
+			}
+		},
+		showFreezeLayer() {
+			this.freezeLayer = true;
+		},
+		hideFreezeLayer() {
+			this.freezeLayer = false;
+		},
+		playComputer() {
+			this.computerPlayed = true;
+			let index = Math.floor(Math.random() * this.availableLookup.length);
+			index = this.availableLookup[index];
+			let computerCell = document.querySelectorAll(`[data-cell="${index}"]`);
+			computerCell[0].click();
 		},
 		playAudio() {
 			this.moveAudio.currentTime = 0;
@@ -98,6 +143,9 @@ export default {
 		if(this.checkIsMobile()) {
 			this.isMobile = true;
 		}
+		for(let i = 0; i < this.$root.store.boardSize * this.$root.store.boardSize; i++) {
+			this.availableLookup.push(i);
+		}
 		this.cellElements = this.$refs.board.children;
 	}
 }
@@ -111,7 +159,7 @@ export default {
 	}
 	.board {
 		width: 100vw;
-		height: 70vh;
+		height: 60vh;
 		display: grid;
 		grid-template-columns: repeat(3, auto);
 		justify-content: center;
